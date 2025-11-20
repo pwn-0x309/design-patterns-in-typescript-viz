@@ -1,0 +1,233 @@
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  height: 100%;
+}
+
+.config {
+  background: var(--bg-tertiary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.configGroup h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.toggle:hover {
+  border-color: var(--accent-primary);
+}
+
+.toggle.active {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.scene {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px dashed var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.deviceContainer {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device {
+  width: 240px;
+  height: 160px;
+  background: #1f2937;
+  border-radius: 12px;
+  border: 4px solid #374151;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.device.on {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+.radio {
+  width: 200px;
+  height: 120px;
+  border-radius: 8px;
+}
+
+.screen, .display {
+  margin-top: 1rem;
+  background: #111827;
+  width: 80%;
+  height: 60px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #10b981;
+}
+
+.offText {
+  color: #374151;
+}
+
+.volumeBar {
+  width: 80%;
+  height: 4px;
+  background: #374151;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.volumeLevel {
+  height: 100%;
+  background: #10b981;
+  transition: width 0.2s ease;
+}
+
+.remote {
+  width: 180px;
+  background: #262626;
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border: 1px solid #404040;
+}
+
+.remoteHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: #737373;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.irBlaster {
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.powerBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+}
+
+.powerBtn:active {
+  transform: scale(0.95);
+}
+
+.volControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #171717;
+  padding: 0.5rem;
+  border-radius: 100px;
+}
+
+.volBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #404040;
+  border: none;
+  color: #d4d4d4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volBtn:active {
+  background: #52525b;
+}
+
+.volLabel {
+  font-size: 0.7rem;
+  color: #737373;
+  font-weight: 700;
+}
+
+.muteBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #404040;
+  border: none;
+  border-radius: 8px;
+  color: #d4d4d4;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.muteBtn:active {
+  background: #52525b;
+}

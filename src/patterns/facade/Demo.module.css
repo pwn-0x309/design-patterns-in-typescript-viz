@@ -1,0 +1,158 @@
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  height: 100%;
+}
+
+.controls {
+  background: var(--bg-tertiary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.controls h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: white;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.watchBtn {
+  background: #10b981;
+}
+
+.watchBtn:not(:disabled):hover {
+  background: #059669;
+}
+
+.endBtn {
+  background: #ef4444;
+}
+
+.endBtn:not(:disabled):hover {
+  background: #dc2626;
+}
+
+.visualization {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px dashed var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.devices {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+  background: #111827;
+  border-radius: 12px;
+}
+
+.device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4b5563;
+  transition: all 0.5s ease;
+}
+
+.device.active {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.device.dimmed {
+  color: #f59e0b;
+  opacity: 0.5;
+}
+
+.logWindow {
+  flex: 1;
+  background: #1f2937;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #374151;
+}
+
+.logHeader {
+  background: #374151;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.logs {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logEntry {
+  color: #d1d5db;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.timestamp {
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.emptyLog {
+  color: #6b7280;
+  font-style: italic;
+}
