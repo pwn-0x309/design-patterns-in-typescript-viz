@@ -1,14 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Trees, RefreshCw } from 'lucide-react';
+import { Trees } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Flyweight
 class TreeType {
+  // @ts-expect-error Intrinsic state reserved for pattern demonstration
+  private _name: string;
+  private color: string;
+  // @ts-expect-error Intrinsic state reserved for pattern demonstration
+  private _texture: string;
+
   constructor(
-    private name: string,
-    private color: string,
-    private texture: string
-  ) {}
+    name: string,
+    color: string,
+    texture: string
+  ) {
+    this._name = name;
+    this.color = color;
+    this._texture = texture;
+  }
 
   public draw(canvas: CanvasRenderingContext2D, x: number, y: number) {
     canvas.fillStyle = this.color;
@@ -43,11 +53,19 @@ class TreeFactory {
 
 // Context
 class Tree {
+  private x: number;
+  private y: number;
+  private type: TreeType;
+
   constructor(
-    private x: number,
-    private y: number,
-    private type: TreeType
-  ) {}
+    x: number,
+    y: number,
+    type: TreeType
+  ) {
+    this.x = x;
+    this.y = y;
+    this.type = type;
+  }
 
   public draw(canvas: CanvasRenderingContext2D) {
     this.type.draw(canvas, this.x, this.y);
@@ -123,6 +141,7 @@ export const FlyweightDemo: React.FC = () => {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line
     plantForest(100);
   }, []);
 

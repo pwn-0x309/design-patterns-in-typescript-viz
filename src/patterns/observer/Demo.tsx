@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Bell, BellOff, User, Youtube, Mail } from 'lucide-react';
 import styles from './Demo.module.css';
 
@@ -73,10 +73,11 @@ class Subscriber implements Observer {
   }
 }
 
+
 export const ObserverDemo: React.FC = () => {
   const [logs, setLogs] = useState<string[]>([]);
   const [notifications, setNotifications] = useState<string[]>([]);
-  const [, setTick] = useState(0); // Force update
+
 
   const addLog = (log: string) => setLogs(prev => [log, ...prev]);
   const addNotification = (note: string) => setNotifications(prev => [note, ...prev]);

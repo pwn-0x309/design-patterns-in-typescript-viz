@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Shield, Wrench, Headphones, CheckCircle, XCircle, ArrowRight } from 'lucide-react';
+import { User, Shield, Wrench, ArrowRight } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Handler Interface

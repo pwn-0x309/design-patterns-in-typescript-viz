@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Play, RotateCcw } from 'lucide-react';
+import { Calculator, Play } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Expression Interface
@@ -9,7 +9,10 @@ interface Expression {
 
 // Terminal Expression
 class NumberExpression implements Expression {
-  constructor(private number: number) {}
+  private number: number;
+  constructor(number: number) {
+    this.number = number;
+  }
 
   public interpret(): number {
     return this.number;
@@ -18,7 +21,12 @@ class NumberExpression implements Expression {
 
 // Non-Terminal Expressions
 class PlusExpression implements Expression {
-  constructor(private left: Expression, private right: Expression) {}
+  private left: Expression;
+  private right: Expression;
+  constructor(left: Expression, right: Expression) {
+    this.left = left;
+    this.right = right;
+  }
 
   public interpret(): number {
     return this.left.interpret() + this.right.interpret();
@@ -26,7 +34,12 @@ class PlusExpression implements Expression {
 }
 
 class MinusExpression implements Expression {
-  constructor(private left: Expression, private right: Expression) {}
+  private left: Expression;
+  private right: Expression;
+  constructor(left: Expression, right: Expression) {
+    this.left = left;
+    this.right = right;
+  }
 
   public interpret(): number {
     return this.left.interpret() - this.right.interpret();
@@ -34,7 +47,12 @@ class MinusExpression implements Expression {
 }
 
 class MultiplyExpression implements Expression {
-  constructor(private left: Expression, private right: Expression) {}
+  private left: Expression;
+  private right: Expression;
+  constructor(left: Expression, right: Expression) {
+    this.left = left;
+    this.right = right;
+  }
 
   public interpret(): number {
     return this.left.interpret() * this.right.interpret();
@@ -95,7 +113,7 @@ export const InterpreterDemo: React.FC = () => {
       } else {
         setError('Invalid Expression');
       }
-    } catch (e) {
+    } catch {
       setError('Error parsing expression');
     }
   };

@@ -16,7 +16,10 @@ interface Visitable {
 
 // Concrete Elements
 class Liquor implements Visitable {
-  constructor(public price: number) {}
+  public price: number;
+  constructor(price: number) {
+    this.price = price;
+  }
 
   public accept(visitor: Visitor): number {
     return visitor.visitLiquor(this);
@@ -24,7 +27,10 @@ class Liquor implements Visitable {
 }
 
 class Tobacco implements Visitable {
-  constructor(public price: number) {}
+  public price: number;
+  constructor(price: number) {
+    this.price = price;
+  }
 
   public accept(visitor: Visitor): number {
     return visitor.visitTobacco(this);
@@ -32,7 +38,10 @@ class Tobacco implements Visitable {
 }
 
 class Necessity implements Visitable {
-  constructor(public price: number) {}
+  public price: number;
+  constructor(price: number) {
+    this.price = price;
+  }
 
   public accept(visitor: Visitor): number {
     return visitor.visitNecessity(this);
@@ -49,7 +58,8 @@ class TaxVisitor implements Visitor {
     return tobacco.price * 0.32; // 32% tax
   }
 
-  public visitNecessity(necessity: Necessity): number {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public visitNecessity(_: Necessity): number {
     return 0; // 0% tax
   }
 }
@@ -63,7 +73,8 @@ class HolidayTaxVisitor implements Visitor {
     return tobacco.price * 0.20; // 20% tax
   }
 
-  public visitNecessity(necessity: Necessity): number {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public visitNecessity(_: Necessity): number {
     return 0;
   }
 }
@@ -90,7 +101,8 @@ export const VisitorDemo: React.FC = () => {
 
       // We need to cast item to any to access price since it's not on Visitable interface
       // In a real app, we might have a common base class or interface with price
-      const price = (item as any).price;
+      // We need to cast item to check for price property
+      const price = (item as unknown as { price: number }).price;
       const tax = item.accept(visitor);
       
       return { price, tax, type };

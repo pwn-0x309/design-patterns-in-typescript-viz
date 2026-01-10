@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Music, SkipBack, SkipForward, Play, Pause, Disc } from 'lucide-react';
+import { SkipBack, Play, Pause, Disc } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Iterator Interface
@@ -13,7 +13,8 @@ interface Iterator<T> {
 
 // Aggregator Interface
 interface Aggregator {
-  getIterator(): Iterator<string>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getIterator(): Iterator<any>;
 }
 
 // Concrete Iterator

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tv, Speaker, Lightbulb, Play, Square, Power } from 'lucide-react';
+import { Tv, Speaker, Lightbulb, Play, Square } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Subsystem 1
@@ -31,12 +31,22 @@ class Lights {
 
 // Facade
 class HomeTheaterFacade {
+  private amp: Amplifier;
+  private tuner: Tuner;
+  private projector: Projector;
+  private lights: Lights;
+
   constructor(
-    private amp: Amplifier,
-    private tuner: Tuner,
-    private projector: Projector,
-    private lights: Lights
-  ) {}
+    amp: Amplifier,
+    tuner: Tuner,
+    projector: Projector,
+    lights: Lights
+  ) {
+    this.amp = amp;
+    this.tuner = tuner;
+    this.projector = projector;
+    this.lights = lights;
+  }
 
   public watchMovie(movie: string): string[] {
     const logs = [];

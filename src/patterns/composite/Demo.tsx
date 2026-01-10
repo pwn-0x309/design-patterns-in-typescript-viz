@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Folder, File, FileText, Image, Music, ChevronRight, ChevronDown, Plus, Trash2 } from 'lucide-react';
+import { Folder, FileText, Image, Music, ChevronRight, ChevronDown } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Component Interface
@@ -11,7 +11,15 @@ interface FileSystemComponent {
 
 // Leaf
 class FileItem implements FileSystemComponent {
-  constructor(private name: string, private size: number, private type: 'text' | 'image' | 'audio') {}
+  private name: string;
+  private size: number;
+  private type: 'text' | 'image' | 'audio';
+
+  constructor(name: string, size: number, type: 'text' | 'image' | 'audio') {
+    this.name = name;
+    this.size = size;
+    this.type = type;
+  }
 
   public getName() { return this.name; }
   public getSize() { return this.size; }
@@ -35,7 +43,11 @@ class Directory implements FileSystemComponent {
   private children: FileSystemComponent[] = [];
   private isOpen = true;
 
-  constructor(private name: string) {}
+  private name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
 
   public add(component: FileSystemComponent) {
     this.children.push(component);
@@ -90,7 +102,15 @@ class Directory implements FileSystemComponent {
 export const CompositeDemo: React.FC = () => {
   // We need to reconstruct the tree on every render to handle state properly in this simple demo
   // In a real app, the data structure would be separate from the view components
-  const [structure, setStructure] = useState<any>({
+  interface FileSystemNode {
+    name: string;
+    type: 'dir' | 'file';
+    size?: number;
+    fileType?: 'text' | 'image' | 'audio';
+    children?: FileSystemNode[];
+  }
+
+  const [structure] = useState<FileSystemNode>({
     name: 'root',
     type: 'dir',
     children: [
@@ -107,22 +127,23 @@ export const CompositeDemo: React.FC = () => {
   });
 
   // Helper to build the Composite tree from state
-  const buildTree = (node: any): FileSystemComponent => {
+  const buildTree = (node: FileSystemNode): FileSystemComponent => {
     if (node.type === 'file') {
-      return new FileItem(node.name, node.size, node.fileType);
+      return new FileItem(node.name, node.size || 0, node.fileType || 'text');
     }
     const dir = new Directory(node.name);
-    node.children.forEach((child: any) => {
-      dir.add(buildTree(child));
-    });
+    if (node.children) {
+      node.children.forEach((child) => {
+        dir.add(buildTree(child));
+      });
+    }
     return dir;
   };
 
   const root = buildTree(structure);
 
   // Force update for interactivity
-  const [, setTick] = useState(0);
-  const forceUpdate = () => setTick(t => t + 1);
+
 
   // We monkey-patch the toggleOpen method of the root directory instance created in render
   // to trigger a React re-render. This is a bit hacky but visualizes the pattern well.

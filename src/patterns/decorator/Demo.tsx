@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Coffee, Plus, Check } from 'lucide-react';
+import { Coffee, Check } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Component Interface
@@ -18,7 +18,10 @@ class SimpleCoffee implements CoffeeOrder {
 
 // Base Decorator
 abstract class CoffeeDecorator implements CoffeeOrder {
-  constructor(protected coffee: CoffeeOrder) {}
+  protected coffee: CoffeeOrder;
+  constructor(coffee: CoffeeOrder) {
+    this.coffee = coffee;
+  }
 
   public getCost() { return this.coffee.getCost(); }
   public getDescription() { return this.coffee.getDescription(); }

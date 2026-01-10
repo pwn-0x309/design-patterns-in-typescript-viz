@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Circle, Square, ArrowRight, Check, X } from 'lucide-react';
+import { ArrowRight, Check, X } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Target Interface
@@ -15,7 +15,11 @@ interface RoundPeg {
 
 // Incompatible Interface
 class SquarePeg {
-  constructor(private width: number) {}
+  private width: number;
+
+  constructor(width: number) {
+    this.width = width;
+  }
 
   public getWidth(): number {
     return this.width;
@@ -24,7 +28,10 @@ class SquarePeg {
 
 // Adapter
 class SquarePegAdapter implements RoundPeg {
-  constructor(private peg: SquarePeg) {}
+  private peg: SquarePeg;
+  constructor(peg: SquarePeg) {
+    this.peg = peg;
+  }
 
   public getRadius(): number {
     // The adapter pretends that it's a round peg with a radius 
@@ -35,7 +42,10 @@ class SquarePegAdapter implements RoundPeg {
 
 // Client Code (The Hole)
 class ConcreteRoundHole implements RoundHole {
-  constructor(private radius: number) {}
+  private radius: number;
+  constructor(radius: number) {
+    this.radius = radius;
+  }
 
   public getRadius(): number {
     return this.radius;

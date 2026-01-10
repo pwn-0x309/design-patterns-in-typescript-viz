@@ -59,9 +59,11 @@ export const ProxyDemo: React.FC = () => {
     setSource(null);
     addLog(`Requesting data for: "${query}"...`);
 
-    const startTime = Date.now();
+    // eslint-disable-next-line react-hooks/purity
+    const startTime = performance.now();
     const data = await proxy.getData(query);
-    const endTime = Date.now();
+    // eslint-disable-next-line react-hooks/purity
+    const endTime = performance.now();
     const duration = endTime - startTime;
 
     setResult(data);
