@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Lightbulb, Thermometer, RotateCcw, Power, ArrowUp, ArrowDown } from 'lucide-react';
 import styles from './Demo.module.css';
 
@@ -39,7 +39,10 @@ class Thermostat {
 
 // Concrete Commands
 class LightOnCommand implements Command {
-  constructor(private light: SmartLight) {}
+  private light: SmartLight;
+  constructor(light: SmartLight) {
+    this.light = light;
+  }
 
   public execute() {
     this.light.on();
@@ -53,7 +56,10 @@ class LightOnCommand implements Command {
 }
 
 class LightOffCommand implements Command {
-  constructor(private light: SmartLight) {}
+  private light: SmartLight;
+  constructor(light: SmartLight) {
+    this.light = light;
+  }
 
   public execute() {
     this.light.off();
@@ -68,8 +74,12 @@ class LightOffCommand implements Command {
 
 class SetTempCommand implements Command {
   private prevTemp: number;
+  private thermostat: Thermostat;
+  private newTemp: number;
 
-  constructor(private thermostat: Thermostat, private newTemp: number) {
+  constructor(thermostat: Thermostat, newTemp: number) {
+    this.thermostat = thermostat;
+    this.newTemp = newTemp;
     this.prevTemp = thermostat.temperature;
   }
 

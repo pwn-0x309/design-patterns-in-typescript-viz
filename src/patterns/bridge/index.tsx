@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { BridgeDemo } from './Demo';
 import { bridgeCode, bridgeExplanation } from './data';

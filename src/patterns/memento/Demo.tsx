@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Save, RotateCcw, Clock, FileText } from 'lucide-react';
 import styles from './Demo.module.css';
 
 // Memento
 class EditorMemento {
-  constructor(private content: string, private date: string) {}
+  private content: string;
+  private date: string;
+
+  constructor(content: string, date: string) {
+    this.content = content;
+    this.date = date;
+  }
 
   public getContent(): string {
     return this.content;

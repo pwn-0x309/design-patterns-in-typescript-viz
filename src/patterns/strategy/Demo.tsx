@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CreditCard, Wallet, DollarSign, ShoppingCart } from 'lucide-react';
 import styles from './Demo.module.css';
 
@@ -12,11 +12,12 @@ interface PaymentStrategy {
 // Concrete Strategies
 class CreditCardPayment implements PaymentStrategy {
   private cardNumber: string;
-  private cvv: string;
+  // @ts-expect-error Intrinsic state
+  private _cvv: string;
 
   constructor(cardNumber: string, cvv: string) {
     this.cardNumber = cardNumber;
-    this.cvv = cvv;
+    this._cvv = cvv;
   }
 
   public pay(amount: number): string {

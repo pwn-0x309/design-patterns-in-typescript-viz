@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { TemplateMethodDemo } from './Demo';
 import { templateMethodCode, templateMethodExplanation } from './data';

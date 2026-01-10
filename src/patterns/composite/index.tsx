@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { CompositeDemo } from './Demo';
 import { compositeCode, compositeExplanation } from './data';

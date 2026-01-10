@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { FacadeDemo } from './Demo';
 import { facadeCode, facadeExplanation } from './data';

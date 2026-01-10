@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { MementoDemo } from './Demo';
 import { mementoCode, mementoExplanation } from './data';

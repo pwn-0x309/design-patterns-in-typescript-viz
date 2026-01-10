@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { ObserverDemo } from './Demo';
 import { observerCode, observerExplanation } from './data';

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { AdapterDemo } from './Demo';
 import { adapterCode, adapterExplanation } from './data';

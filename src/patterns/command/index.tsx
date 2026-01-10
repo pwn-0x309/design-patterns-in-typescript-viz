@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { CommandDemo } from './Demo';
 import { commandCode, commandExplanation } from './data';

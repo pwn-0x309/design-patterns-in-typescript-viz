@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { MediatorDemo } from './Demo';
 import { mediatorCode, mediatorExplanation } from './data';

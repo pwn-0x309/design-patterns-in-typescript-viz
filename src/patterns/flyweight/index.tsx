@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { FlyweightDemo } from './Demo';
 import { flyweightCode, flyweightExplanation } from './data';

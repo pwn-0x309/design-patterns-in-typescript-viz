@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PatternLayout } from '../../components/ui/PatternLayout';
 import { ProxyDemo } from './Demo';
 import { proxyCode, proxyExplanation } from './data';
