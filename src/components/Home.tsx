@@ -26,7 +26,7 @@ export const Home: React.FC = () => {
           <Link to="/patterns/singleton" className={styles.primaryBtn}>
             Start Learning <ArrowRight size={18} />
           </Link>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className={styles.secondaryBtn}>
+          <a href="https://github.com/pwn-0x309/design-patterns-in-typescript-viz" target="_blank" rel="noreferrer" className={styles.secondaryBtn}>
             View on GitHub
           </a>
         </div>
